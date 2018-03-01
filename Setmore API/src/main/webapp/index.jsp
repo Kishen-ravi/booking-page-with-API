@@ -29,7 +29,7 @@
     <ul id="serviceList"></ul>
    	</div>
    	
-   	<div id="staff" style = 'display:none'>
+   	<div id="staff">
    	<h2>Choose Staff</h2>
     <ul id="staffList"></ul>
    	</div>
@@ -56,10 +56,10 @@
    
    	<div id = "appointmentConfirmed" class = "contact" style = 'display:none'>
    		<label>Appointment Confirmed!!!</label><br>
-  		<label style="padding-right: 22px;">Service Name</label>:<label id="serviceName"></label><br>
-  		<label style="padding-right: 43px;">Staff Name</label>:<label id="staffName"></label><br>
-  		<label style="padding-right: 0px;margin-right: 9px;">Appointment time</label>:<label id="appointmentTime"></label><br>
- 		<label style="margin-right: 38px;">Your Info</label>:<label id="yourInfo"></label><br>
+  		<label style="padding-right: 22px;">Service Name</label>:<label id="serviceN"></label><br>
+  		<label style="padding-right: 43px;">Staff Name</label>:<label id="staffN"></label><br>
+  		<label style="padding-right: 0px;margin-right: 9px;">Appointment time</label>:<label id="appointmentT"></label><br>
+ 		<label style="margin-right: 38px;">Your Info</label>:<label id="yourI"></label><br>
  		<label id="yourEmail"></label><br>
    	</div>
   </body>

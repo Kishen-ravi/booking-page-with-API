@@ -184,9 +184,8 @@ function appointment() {
 
 //function to create the datepicker form
 function datepicker(serviceKey) {
-//	e.stopPropagation();
-//	e.preventDefault();
-	$("ul").empty();
+	document.getElementById("service").style.display = 'none';
+	document.getElementById("date").style.display = 'block';
 	service=serviceKey.split(" ");
 	window.serviceKey = service[0];
 	window.serviceName = service[1];
@@ -219,6 +218,11 @@ var datePick =   function() {
 function confirmed(){
 	document.getElementById("appointmentConfirmation").style.display = 'none';
 	document.getElementById("appointmentConfirmed").style.display = 'block';
+	document.getElementById('serviceN').innerHTML = serviceName;
+	document.getElementById('staffN').innerHTML = staffName;
+
+	document.getElementById('appointmentT').innerHTML = startDate + " " + startHour;
+	document.getElementById('yourI').innerHTML = customerDetails.first_name +" "+ customerDetails.last_name;
 }
 
 //function to create the list 
@@ -233,7 +237,7 @@ function createList(clickFunc,list,id,name)
   	var textnode = document.createTextNode(name);
   	para.appendChild(textnode);
   	node.appendChild(para);
-  	node.onclick = function() { alert("id is"+this.id);
+  	node.onclick = function() { 
   		clickFunc(this.id);
   	};
   	document.getElementById(list).appendChild(node);  	
