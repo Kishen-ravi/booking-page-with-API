@@ -8,10 +8,11 @@ $.getJSON(jsonUrl, function(data) {
 	  window.access_token = Access.data.token.access_token;
 	  console.log(access_token);
 	  $('#result').text(access_token);
+	  starting();
 }, "json");
 
 //function to get the service list 
-setTimeout(function(){
+function starting(){
 $.ajax({
 	type: "GET",
 	url: "https://developer.setmore.com/api/v1/bookingapi/services",
@@ -25,7 +26,26 @@ $.ajax({
 		console.log(data); 
 		}
 });
-}, 2000);
+
+//function to get the staff list and to create the list of staffs in the account
+	$.ajax({
+		type: "GET",
+		url: "https://developer.setmore.com/api/v1/bookingapi/staffs",
+		beforeSend: function(xhr) {
+	        xhr.setRequestHeader('Content-Type', 'application/json');
+	        xhr.setRequestHeader('Authorization', 'Bearer '+ window.access_token);
+	    },
+		success: function (data){
+			b=data;
+			list="staffList";
+			var clickFunc=services;
+			for(i=0;i<b.data.staffs.length;i++)
+			createList(clickFunc,list,b.data.staffs[i].key,b.data.staffs[i].first_name);
+			$(".sk-cube-grid").hide();
+			console.log(data);
+		}
+	});
+}
 
 //function to create the list of services for the selected staff
 function services(staffID) {
@@ -47,26 +67,6 @@ function services(staffID) {
 		}
 	}
 }
-
-//function to get the staff list and to create the list of staffs in the account
-setTimeout(function(){
-	$.ajax({
-		type: "GET",
-		url: "https://developer.setmore.com/api/v1/bookingapi/staffs",
-		beforeSend: function(xhr) {
-	        xhr.setRequestHeader('Content-Type', 'application/json');
-	        xhr.setRequestHeader('Authorization', 'Bearer '+ window.access_token);
-	    },
-		success: function (data){
-			b=data;
-			list="staffList";
-			var clickFunc=services;
-			for(i=0;i<b.data.staffs.length;i++)
-			createList(clickFunc,list,b.data.staffs[i].key,b.data.staffs[i].first_name);
-			console.log(data);
-		}
-	});
-}, 2000);
 
 //function to get the slots avaiable for the selected staff,service and the date
 function slots() {
@@ -207,11 +207,13 @@ function datepicker(serviceKey) {
 
 //function to add the datepicker into the page
 var datePick =   function() {   
+	$('#datePicker1').datepicker('setDate', new Date());
 	$( "#datePicker1" ).datepicker({
 		beforeShowDay: $.datepicker.noWeekends,
 		dateFormat: 'dd/mm/yy',
 		onSelect   : slots
 	});
+	
 } 
 
 //function to show the appointment confirmed page

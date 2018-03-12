@@ -33,7 +33,18 @@
    	<h2>Choose Staff</h2>
     <ul id="staffList"></ul>
    	</div>
-    
+   	
+    <div class="sk-cube-grid" style = 'display:block'>
+		<div class="sk-cube sk-cube1"></div>
+		<div class="sk-cube sk-cube2"></div>
+		<div class="sk-cube sk-cube3 green"></div>
+		<div class="sk-cube sk-cube4"></div>
+		<div class="sk-cube sk-cube5 green"></div>
+		<div class="sk-cube sk-cube6 green"></div>
+		<div class="sk-cube sk-cube7 green"></div>
+		<div class="sk-cube sk-cube8 green"></div>
+		<div class="sk-cube sk-cube9 green"></div>
+	</div>
     
     
    	<div id ='customerForm' class = "contact" style = 'display:none'>
