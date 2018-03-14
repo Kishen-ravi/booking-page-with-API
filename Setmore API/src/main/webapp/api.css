@@ -4,7 +4,7 @@ html, body {
   font-family: sans-serif;
   padding: 1em;
 }
-h1, label{
+h1{
 	cursor: default;
 }
 #customerSubmit, #bookAppointment {

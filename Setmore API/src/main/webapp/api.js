@@ -234,7 +234,7 @@ function createList(clickFunc,list,id,name)
   	node.class = "";
   	node.id =  id +" "+name;
   	node.className = "createdList";
-  	var para = document.createElement("label");
+  	var para = document.createElement("span");
   	para.id = id +" "+name;
   	var textnode = document.createTextNode(name);
   	para.appendChild(textnode);
